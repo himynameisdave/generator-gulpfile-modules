@@ -1,0 +1,26 @@
+{
+  "name": "generator-gulpfile-modules",
+  "version": "0.0.0",
+  "description": "Generates a modularized Gulpfile for you",
+  "main": "app/index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/himynameisdave/generator-gulpfile-modules.git"
+  },
+  "keywords": [
+    "yeoman",
+    "yeoman-generator",
+    "generator",
+    "gulp",
+    "gulpjs"
+  ],
+  "author": "Dave Lunny",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/himynameisdave/generator-gulpfile-modules/issues"
+  },
+  "homepage": "https://github.com/himynameisdave/generator-gulpfile-modules#readme"
+}

@@ -2,6 +2,7 @@
 var yeoman = require('yeoman-generator'),
     chalk  = require('chalk'),
     fs     = require('fs'),
+    loggit = require('loggit'),
     banner = require('./modules/banner.js'),
     tasks  = require('./modules/tasks.js');
 
@@ -62,35 +63,37 @@ module.exports = yeoman.generators.Base.extend({
       main:         "server.js",
       author:       "",
       licence:      "MIT"
-    };
+    },
+    destination = this.destinationPath('package.json');
 
     //  see if there is already a package.json
     //  if there is, we'll append it with some path info
-    fs.readFile( this.destinationPath('package.json'), 'utf8', function(err, data){
-      if( data )
-        pkg = JSON.parse(data);
+    if( fs.existsSync(destination) )
+      pkg = JSON.parse(fs.readFileSync( destination ));
 
-      //  set the directories
-      pkg.directories = {
-        src: {
-          css: './src/css/',
-          js:  './src/js/',
-          img: './src/img/'
-        },
-        dist: {
-          css: './dist/css/',
-          js:  './dist/js/',
-          img: './dist/img/'
-        }
+
+    //  set the directories
+    pkg.directories = {
+      src: {
+        css: './src/css/',
+        js:  './src/js/',
+        img: './src/img/'
+      },
+      dist: {
+        css: './dist/css/',
+        js:  './dist/js/',
+        img: './dist/img/'
       }
+    }
 
-      console.log( JSON.stringify(pkg) )
-
-    });
+    //  write our new package.json file
+    loggit("Attempting to write directories your package.json file!", "green", "=");
+    this.write( destination, JSON.stringify(pkg, null, 2) );
 
   },
 
   projectfiles: function () {
+    loggit("projectFiles task is running now!", "cyan")
     // this.fs.copy(
     //   this.templatePath('editorconfig'),
     //   this.destinationPath('.editorconfig')

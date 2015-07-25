@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/himynameisdave/generator-gulpfile-modules/issues"
   },
-  "homepage": "https://github.com/himynameisdave/generator-gulpfile-modules#readme"
+  "homepage": "https://github.com/himynameisdave/generator-gulpfile-modules#readme",
+  "devDependencies": {
+    "loggit": "^0.2.0"
+  }
 }

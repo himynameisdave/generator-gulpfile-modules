@@ -1,6 +1,7 @@
 'use strict';
 var yeoman = require('yeoman-generator'),
     chalk  = require('chalk'),
+    fs     = require('fs'),
     banner = require('./modules/banner.js'),
     tasks  = require('./modules/tasks.js');
 
@@ -9,28 +10,35 @@ var yeoman = require('yeoman-generator'),
 
 module.exports = yeoman.generators.Base.extend({
   prompting: function () {
-    var done = this.async();
+
+    var done = this.async(),
+        taskChoices = [],
+        optionsList = this.options['list'];
 
     //  Say hello
     this.log(banner);
-    //  Explain what task options are available
-    this.log("The following tasks are available:")
 
-    var taskChoices = [];
+    //  if they need a list, we will write out this line
+    if(optionsList)
+      this.log("The following tasks are available:")//  Explain what task options are available
+    else
+      this.log("\nIf you want to see a list of available tasks, run this generator with --list\n")//  letting the user know they can get a list of tasks
+
     // loop thru tasks to setup prompts
     tasks.forEach( function( task, i ){
       //  store the task names for later use
       taskChoices.push(task.name)
-      console.log("Task:  "+task.name+"\n      ---> "+task.desc);
+      if(optionsList)
+        console.log("TASK: "+task.name+"\n        |--> "+task.desc);
     });
 
     //  actually deliver the prompt
     var prompts = [{
-      type:    'checkbox',
-      name:    'tasks',
-      message: 'Which tasks would you like to use?',
-      choices: taskChoices
-    }];
+          type:    'checkbox',
+          name:    'tasks',
+          message: 'Which tasks would you like to use?',
+          choices: taskChoices
+        }];
 
     this.prompt(prompts, function (props) {
       this.props = props;
@@ -40,31 +48,60 @@ module.exports = yeoman.generators.Base.extend({
     }.bind(this));
   },
 
-  writing: {
-    app: function () {
-      this.fs.copy(
-        this.templatePath('_package.json'),
-        this.destinationPath('package.json')
-      );
-      this.fs.copy(
-        this.templatePath('_bower.json'),
-        this.destinationPath('bower.json')
-      );
-    },
+  packageJson: function () {
 
-    projectfiles: function () {
-      this.fs.copy(
-        this.templatePath('editorconfig'),
-        this.destinationPath('.editorconfig')
-      );
-      this.fs.copy(
-        this.templatePath('jshintrc'),
-        this.destinationPath('.jshintrc')
-      );
-    }
+    //  get a project name if we can
+    var projectName = this.destinationRoot().split('/');
+        projectName = projectName[ projectName.length - 1];
+
+    //  our package
+    var pkg = {
+      name:         projectName,
+      description:  "",
+      version:      "0.0.0",
+      main:         "server.js",
+      author:       "",
+      licence:      "MIT"
+    };
+
+    //  see if there is already a package.json
+    //  if there is, we'll append it with some path info
+    fs.readFile( this.destinationPath('package.json'), 'utf8', function(err, data){
+      if( data )
+        pkg = JSON.parse(data);
+
+      //  set the directories
+      pkg.directories = {
+        src: {
+          css: './src/css/',
+          js:  './src/js/',
+          img: './src/img/'
+        },
+        dist: {
+          css: './dist/css/',
+          js:  './dist/js/',
+          img: './dist/img/'
+        }
+      }
+
+      console.log( JSON.stringify(pkg) )
+
+    });
+
+  },
+
+  projectfiles: function () {
+    // this.fs.copy(
+    //   this.templatePath('editorconfig'),
+    //   this.destinationPath('.editorconfig')
+    // );
+    // this.fs.copy(
+    //   this.templatePath('jshintrc'),
+    //   this.destinationPath('.jshintrc')
+    // );
   },
 
   install: function () {
-    this.installDependencies();
+    // this.installDependencies();
   }
 });

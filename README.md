@@ -4,7 +4,7 @@
 
 ### Motivation
 
-So as I was bumling around trying to make my modular JS code work with Browserify+Gulp last week, I came across [this fantastic article by a fello named](http://viget.com/extend/gulp-browserify-starter-faq) [Dan Tello](https://twitter.com/dantello5). It of course, solved my Browserify issues, but what was more interesting is the way this fellow breaks up his Gulpfile like a boss. His actual ``gulpfile.js` is only 11 lines long:
+So as I was bumling around trying to make my modular JS code work with Browserify+Gulp last week, I came across [this fantastic article by a fello named](http://viget.com/extend/gulp-browserify-starter-faq) [Dan Tello](https://twitter.com/dantello5). It of course, solved my Browserify issues, but what was more interesting is the way this fellow breaks up his Gulpfile like a boss. His actual `gulpfile.js` is only 11 lines long:
 
 ```javascript
 var gulp = require('./gulp')([
@@ -31,10 +31,12 @@ This generator will produce a small gulpfile like the one seen above, along with
   ./
   |- gulpfile.js
   |- gulp/
-  |  |- gulpTaskModule1.js
-  |  |- gulpTaskModule2.js
-  |  |- gulpTaskModule3.js
-  |  |- ...etc.
+  |  |- index.js // this loads all the tasks & gets required by the main gulpfile
+  |  |- tasks/
+  |  |  |- gulpTaskModule1.js
+  |  |  |- gulpTaskModule2.js
+  |  |  |- gulpTaskModule3.js
+  |  |  |- ...etc.
 ```
 
 *Built by Dave Lunny in the beautiful year of 2015.*

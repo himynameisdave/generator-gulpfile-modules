@@ -24,6 +24,7 @@ So something like this:
   |- gulpfile.js
   |- gulp/
   |  | // tasks
+  |- package.json
 
 ```
 
@@ -43,6 +44,11 @@ yo gulpfile-modules
 ```
 
 Check out the current tasks by looking at this folder.
+
+### Configuring Paths
+
+This generator does a cool trick to manage your directories. It writes a `directories` property to your `package.json` that is read by various gulp tasks. This ensures that if you need to say change the name of a path (like maybe you call your production folder `build` instead of `dist`), all you have to do is make the change in your `package.json` and those changes will be reflected in your Gulp tasks.
+
 
 ### Contribute
 

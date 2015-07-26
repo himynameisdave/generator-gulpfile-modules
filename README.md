@@ -1,45 +1,46 @@
 # generator-gulpfile-modules
 > Generates a modularized Gulpfile for you.
 
+### Fun Facts
+Did you know you could break up your `gulpfile.js` into modules? And with [all](http://requirejs.org/docs/why.html) [the](http://eloquentjavascript.net/10_modules.html) [hype over](https://twitter.com/DanWahlin/status/601783420109365248) [modularized code](https://en.wikipedia.org/wiki/Modular_programming), it stands to reason that we apply this to the way we handle Gulp tasks.
 
-### Motivation
+### Reasoning
 
-So as I was bumling around trying to make my modular JS code work with Browserify+Gulp last week, I came across [this fantastic article by a fello named](http://viget.com/extend/gulp-browserify-starter-faq) [Dan Tello](https://twitter.com/dantello5). It of course, solved my Browserify issues, but what was more interesting is the way this fellow breaks up his Gulpfile like a boss. His actual `gulpfile.js` is only 11 lines long:
+I don't know about you, but sometimes my `gulpfile`'s get hefty. [Real hefty](http://bobs-burgers.wikia.com/wiki/Hefty_Jeff). And so breaking each individual task off into it's own module just makes sense.
 
-```javascript
-var gulp = require('./gulp')([
-    'browserify',
-    'compass',
-    'images',
-    'open',
-    'watch',
-    'serve'
-]);
+I think it also follows Gulp's whole ["one task"](http://slides.com/contra/gulp#/16) simplicity principal.
 
-gulp.task('build', ['browserify', 'compass', 'images']);
-gulp.task('default', ['build', 'watch', 'serve', 'open']);
+On top of that, there is an [official recipe](https://github.com/gulpjs/gulp/blob/master/docs/recipes/split-tasks-across-multiple-files.md) from the (wonderful) people who develop Gulp.
 
-```
 
-So at the root of his project, he's got a `./gulp` folder he puts all his tasks, each in their own little JS file. This is a **really fucking cool** concept, and I think it really follows Gulp's whole notion of "one-task-one-thing" which I appreciate.
+---
 
-##### Enough rambling, wtf is this generator?
+#### Enough yammering, wtf is this generator?
 
-This generator will produce a small `gulpfile.js` like the one seen above, along with any gulp task modules that you need. So like:
+This generator will spit out a `gulpfile` along with the associated task files.
+
+So something like this:
 
 ```
-  ./
+./your-awesome-ass-project
   |- gulpfile.js
   |- gulp/
-  |  |- index.js // this loads all the tasks & gets required by the main gulpfile
-  |  |- tasks/
-  |  |  |- gulpTaskModule1.js
-  |  |  |- gulpTaskModule2.js
-  |  |  |- gulpTaskModule3.js
-  |  |  |- ...etc.
+  |  | // tasks
+
 ```
 
-I like this method because it allows you to select which modules you want on demand (as they might change project to project). So like if one project uses Sass and another uses Less, it is easy to use this generator to config either.
+### Install
+
+You can install by runnning...
+
+```
+npm i -g https://github.com/himynameisdave/generator-gulpfile-modules.git
+
+```
+
+...and run it via:
+
+
 
 ---
 

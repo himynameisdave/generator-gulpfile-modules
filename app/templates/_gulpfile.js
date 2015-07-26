@@ -9,5 +9,5 @@ var gulp       = require('gulp'),
 <% } %>
 
 <% if( mainTasks.dev.length > -1 ) { %>
-  gulp.task( 'dev', [ <% mainTasks.dev.forEach(function(task){ %><%- task %><% }) %> ]);
+  gulp.task( 'dev', [ <% mainTasks.dev.forEach(function(task){ %>'<%- task %>'<% }) %> ]);
 <% } %>

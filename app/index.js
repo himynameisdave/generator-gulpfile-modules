@@ -50,6 +50,24 @@ module.exports = yeoman.generators.Base.extend({
     }.bind(this));
   },
 
+  setMainTasks: function(){
+    //  build out the 'default', 'dev', and 'build' task lists
+    var mainTasks = {};
+
+    //  default tasks config
+      mainTasks.def = this.props.tasks.filter(function( task ){
+        return task === 'server' ? task : false;
+      })
+    //  dev tasks config
+      mainTasks.dev = this.props.tasks.filter(function( task ){
+        return task === 'compile-less' || task === 'compile-sass' ? task : false;
+      });
+
+    //  set our high-level props to hold the task data too
+    this.props.mainTasks = mainTasks;
+
+  },
+
   packageJson: function () {
 
     //  get a project name if we can
@@ -101,26 +119,6 @@ module.exports = yeoman.generators.Base.extend({
     }.bind(this));
     //  actually set our dev deps in the pkg.json we're building
     pkg.devDependencies = devDeps;
-
-
-    //  build out the 'default', 'dev', and 'build' task lists
-    var mainTasks = {};
-
-    //  default tasks config
-      mainTasks.def = this.props.tasks.filter(function( task ){
-        return task === 'server' ? task : false;
-      })
-    //  dev tasks config
-      mainTasks.dev = this.props.tasks.filter(function( task ){
-        return task === 'compile-less' || task === 'compile-sass' ? task : false;
-      });
-
-    loggit(mainTasks);
-    //  set our high-level props to hold the task data too
-    this.props.mainTasks = mainTasks;
-    //  set our main tasks in the pkg.json file
-    //  TODO: is this actually needed? if we're using high-level props
-    pkg.gulpTasks = mainTasks;
 
     //  write our new package.json file
     loggit("Attempting to write directories your package.json file!", "green", "=");

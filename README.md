@@ -21,7 +21,7 @@ gulp.task('default', ['build', 'watch', 'serve', 'open']);
 
 ```
 
-So at the root of his project, he's got a `./gulp` folder he puts all his tasks, each in their own little JS file. This is **really fucking cool**, and I think it really follows Gulp's whole notion of "one-task-one-thing".
+So at the root of his project, he's got a `./gulp` folder he puts all his tasks, each in their own little JS file. This is a **really fucking cool** concept, and I think it really follows Gulp's whole notion of "one-task-one-thing" which I appreciate.
 
 ##### Enough rambling, wtf is this generator?
 
@@ -41,8 +41,9 @@ This generator will produce a small `gulpfile.js` like the one seen above, along
 
 I like this method because it allows you to select which modules you want on demand (as they might change project to project). So like if one project uses Sass and another uses Less, it is easy to use this generator to config either.
 
+---
 
-*Built by Dave Lunny in the beautiful year of 2015.*
+*Built by [Dave Lunny](http://himynameisdave.com) in the beautiful year of 2015.*
 
 
 

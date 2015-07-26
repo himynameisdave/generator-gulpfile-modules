@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/himynameisdave/generator-gulpfile-modules#readme",
   "devDependencies": {
-    "loggit": "^0.2.0"
+    "loggit": "^0.2.0",
+    "mkdirp": "^0.5.1"
   }
 }

@@ -3,6 +3,7 @@ var yeoman = require('yeoman-generator'),
     chalk  = require('chalk'),
     fs     = require('fs'),
     loggit = require('loggit'),
+    mkdirp = require('mkdirp'),
     banner = require('./modules/banner.js'),
     tasks  = require('./modules/tasks.js');
 
@@ -92,19 +93,28 @@ module.exports = yeoman.generators.Base.extend({
 
   },
 
-  projectfiles: function () {
-    loggit("projectFiles task is running now!", "cyan")
-    // this.fs.copy(
-    //   this.templatePath('editorconfig'),
-    //   this.destinationPath('.editorconfig')
-    // );
-    // this.fs.copy(
-    //   this.templatePath('jshintrc'),
-    //   this.destinationPath('.jshintrc')
-    // );
+  buildGulp: function () {
+
+    //  copies over that base index folder
+    this.copy( '_index.js', 'gulp/index.js' );
+
+    //  templates out the gulpfile.js
+    this.template( '_gulpfile.js', 'gulpfile.js', this.props );
+
+    //  make the tasks folder
+    mkdirp( 'gulp/tasks', function(){return;} );
+
+  },
+
+  buildTasks: function(){
+
+
+
+
   },
 
   install: function () {
+    loggit("installing step run", "cyan")
     // this.installDependencies();
   }
 });

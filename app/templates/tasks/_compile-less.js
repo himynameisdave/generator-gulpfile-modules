@@ -8,16 +8,12 @@ var gulp         = require('gulp'),
 
 gulp.task( 'compile-less', function(){
 
-  console.log("compiling the less");
-
-/*
  var postProcessors = [ autoprefixer({ browsers: [ 'last 4 versions', '> 5%' ] }) ]
 
   return gulp.src( paths.directories.src.css+'core.less' )
           .pipe(less())
           .pipe(postcss(postProcessors))
           .pipe(cssnano())
-          .pipe(gulp.dest( paths.css.dist ))
-*/
+          .pipe(gulp.dest( paths.directories.dist.css ))
 
 });

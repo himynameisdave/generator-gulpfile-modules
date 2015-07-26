@@ -1,14 +1,13 @@
-var gulp    = require('gulp'),
-    connect = require('connect');
+var gulp        = require('gulp'),
+    connect     = require('gulp-connect'),
+    port        = 6969;
 
 //  Server, using Connect
 gulp.task( 'server', function(){
 
-  console.log("server task");
-
-  // connect.server({
-  //         root: './',
-  //         port: 6969
-  //       });
+  connect.server({
+          root: './',
+          port: 6969
+        });
 
 });

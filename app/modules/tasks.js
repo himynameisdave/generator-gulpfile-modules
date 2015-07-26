@@ -4,7 +4,7 @@ var tasks = [
     desc: "Sets up a basic server using Connect.",
     deps: [
             'gulp',
-            'connect'
+            'gulp-connect'
           ]
   },{
     name: "compile-less",

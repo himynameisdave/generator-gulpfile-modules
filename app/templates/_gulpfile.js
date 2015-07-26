@@ -1,8 +1,7 @@
-var gulp = require('./gulp')([
-    <% tasks.forEach(function(task, i){ %>'<%- task %>'<% if( i < tasks.length-1 ){ %>,
-    <% }; }); %>
-]);
+var gulp       = require('gulp'),
+    requireDir = require('require-dir'),
+    tasks      = requireDir('./gulp/');
 
 
-// gulp.task('build', ['browserify', 'compass', 'images']);
-// gulp.task('default', ['build', 'watch', 'serve', 'open']);
+
+gulp.task( 'default', [ <% if( tasks.indexOf('server') > -1 ){ %>'server'<% }; %> ]);

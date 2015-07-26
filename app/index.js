@@ -87,6 +87,21 @@ module.exports = yeoman.generators.Base.extend({
       }
     }
 
+    //  build out the devDependencies property
+    var devDeps = {
+      "require-dir": "*"
+    };
+    tasks.forEach(function( task, i ){
+      if( this.props.tasks.indexOf(task.name) > -1 ){
+        task.deps.forEach(function(dep){
+          if( !devDeps[dep] )
+            devDeps[dep] = "*"
+        })
+      }
+    }.bind(this));
+
+    pkg.devDependencies = devDeps;
+
     //  write our new package.json file
     loggit("Attempting to write directories your package.json file!", "green", "=");
     this.write( destination, JSON.stringify(pkg, null, 2) );
@@ -95,26 +110,34 @@ module.exports = yeoman.generators.Base.extend({
 
   buildGulp: function () {
 
-    //  copies over that base index folder
-    this.copy( '_index.js', 'gulp/index.js' );
+    var done = this.async()
 
     //  templates out the gulpfile.js
     this.template( '_gulpfile.js', 'gulpfile.js', this.props );
 
     //  make the tasks folder
-    mkdirp( 'gulp/tasks', function(){return;} );
+    mkdirp( 'gulp/', function(){
+      done();
+    }.bind(this) );
 
   },
 
   buildTasks: function(){
 
+    var done = this.async();
 
-
+    this.props.tasks.forEach(function( task, i ){
+      this.copy( 'tasks/_'+task+'.js', 'gulp/'+task+'.js' );
+      // loggit(task);
+      done();
+    }.bind(this));
 
   },
 
   install: function () {
-    loggit("installing step run", "cyan")
+
+    loggit("You should run `npm i` to install all those dependencies! ", "cyan")
     // this.installDependencies();
+
   }
 });

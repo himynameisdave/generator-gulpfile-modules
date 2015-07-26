@@ -32,7 +32,7 @@ So something like this:
 You can install by runnning...
 
 ```
-npm i -g https://github.com/himynameisdave/generator-gulpfile-modules.git
+npm i -g generator-gulpfile-modules
 
 ```
 

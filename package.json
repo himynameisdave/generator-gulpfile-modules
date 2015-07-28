@@ -1,6 +1,6 @@
 {
   "name": "generator-gulpfile-modules",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Yeoman generator for creating modularized Gulpfiles",
   "main": "app/index.js",
   "repository": {

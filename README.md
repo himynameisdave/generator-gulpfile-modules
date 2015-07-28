@@ -1,5 +1,5 @@
-## generator-gulpfile-modules
-> Yeoman generator for creating modularized Gulpfiles [![Stories in Ready](https://badge.waffle.io/himynameisdave/generator-gulpfile-modules.svg?label=ready&title=Ready)](http://waffle.io/himynameisdave/generator-gulpfile-modules) [![npm version](https://badge.fury.io/js/generator-gulpfile-modules.svg)](http://badge.fury.io/js/generator-gulpfile-modules)
+## generator-gulpfile-modules [![npm version](https://badge.fury.io/js/generator-gulpfile-modules.svg)](http://badge.fury.io/js/generator-gulpfile-modules) [![Stories in Ready](https://badge.waffle.io/himynameisdave/generator-gulpfile-modules.svg?label=ready&title=Ready)](http://waffle.io/himynameisdave/generator-gulpfile-modules)
+> Yeoman generator for creating modularized Gulpfiles
 
 
 

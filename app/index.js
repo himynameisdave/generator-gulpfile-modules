@@ -60,7 +60,8 @@ module.exports = yeoman.generators.Base.extend({
       })
     //  dev tasks config
       mainTasks.dev = this.props.tasks.filter(function( task ){
-        return task === 'compile-less' || task === 'compile-sass' || task === 'browserify' ? task : false;
+        var devTasks = [ 'compile-less', 'compile-sass', 'compile-coffee', 'browserify' ];
+        return devTasks.indexOf( task ) > 0 ? task : false;
       });
     //  build tasks config GOES HERE:
 

@@ -27,6 +27,15 @@ var tasks = [
             "gulp-postcss"
           ]
   },{
+    name: "compile-coffee",
+    desc: "Compile your CoffeeScript files.",
+    deps: [
+            "gulp",
+            "gulp-coffee",
+            "gulp-coffeelint",
+            "coffeelint-stylish"
+          ]
+  },{
     name: "browserify",
     desc: "Bundles your JS modules into a single file.",
     deps: [

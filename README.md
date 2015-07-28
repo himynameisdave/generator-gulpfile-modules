@@ -1,5 +1,7 @@
-# generator-gulpfile-modules
-> Yeoman generator for creating modularized Gulpfiles
+## generator-gulpfile-modules
+> Yeoman generator for creating modularized Gulpfiles [![Stories in Ready](https://badge.waffle.io/himynameisdave/generator-gulpfile-modules.svg?label=ready&title=Ready)](http://waffle.io/himynameisdave/generator-gulpfile-modules)
+
+
 
 ### Fun Facts
 Did you know you could break up your `gulpfile.js` into modules? And with [all](http://requirejs.org/docs/why.html) [the](http://eloquentjavascript.net/10_modules.html) [hype over](https://twitter.com/DanWahlin/status/601783420109365248) [modularized code](https://en.wikipedia.org/wiki/Modular_programming), it stands to reason that we can also apply this approach to Gulp tasks.
@@ -52,7 +54,7 @@ This generator does a cool trick to manage your directories. It writes a `direct
 
 ### Contribute
 
-Feel free to open a PR to help make this generator even better.
+Check out the [waffle](https://waffle.io/himynameisdave/generator-gulpfile-modules) for this project to see what needs to be worked on next! Or file your own pull request if you've got a fix or great idea!
 
 ---
 

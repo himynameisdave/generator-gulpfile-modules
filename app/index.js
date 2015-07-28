@@ -60,8 +60,9 @@ module.exports = yeoman.generators.Base.extend({
       })
     //  dev tasks config
       mainTasks.dev = this.props.tasks.filter(function( task ){
-        return task === 'compile-less' || task === 'compile-sass' ? task : false;
+        return task === 'compile-less' || task === 'compile-sass' || task === 'browserify' ? task : false;
       });
+    //  build tasks config GOES HERE:
 
     //  set our high-level props to hold the task data too
     this.props.mainTasks = mainTasks;

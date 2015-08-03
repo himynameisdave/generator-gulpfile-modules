@@ -42,6 +42,13 @@ var tasks = [
             "gulp",
             "browserify"
           ]
+  },{
+    name: "imagemin",
+    desc: "Minifies your images.",
+    deps: [
+            "gulp",
+            "gulp-imagemin"
+          ]
   }
 ];
 

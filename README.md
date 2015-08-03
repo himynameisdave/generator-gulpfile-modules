@@ -1,6 +1,6 @@
-## generator-gulpfile-modules [![npm version](https://badge.fury.io/js/generator-gulpfile-modules.svg)](http://badge.fury.io/js/generator-gulpfile-modules) [![Stories in Ready](https://badge.waffle.io/himynameisdave/generator-gulpfile-modules.svg?label=ready&title=Ready)](http://waffle.io/himynameisdave/generator-gulpfile-modules)
+## generator-gulpfile-modules
 
-[![Join the chat at https://gitter.im/himynameisdave/generator-gulpfile-modules](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/himynameisdave/generator-gulpfile-modules?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![npm version](https://badge.fury.io/js/generator-gulpfile-modules.svg)](http://badge.fury.io/js/generator-gulpfile-modules) [![Stories in Ready](https://badge.waffle.io/himynameisdave/generator-gulpfile-modules.svg?label=ready&title=Ready)](http://waffle.io/himynameisdave/generator-gulpfile-modules) [![Join the chat at https://gitter.im/himynameisdave/generator-gulpfile-modules](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/himynameisdave/generator-gulpfile-modules?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 > Yeoman generator for creating modularized Gulpfiles
 
 

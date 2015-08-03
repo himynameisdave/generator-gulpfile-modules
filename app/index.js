@@ -54,6 +54,8 @@ module.exports = yeoman.generators.Base.extend({
     //  build out the 'default', 'dev', and 'build' task lists
     var mainTasks = {};
 
+
+
     //  default tasks config
       mainTasks.def = this.props.tasks.filter(function( task ){
         return task === 'server' ? task : false;
@@ -61,9 +63,14 @@ module.exports = yeoman.generators.Base.extend({
     //  dev tasks config
       mainTasks.dev = this.props.tasks.filter(function( task ){
         var devTasks = [ 'compile-less', 'compile-sass', 'compile-coffee', 'browserify' ];
-        return devTasks.indexOf( task ) > 0 ? task : false;
+        return devTasks.indexOf( task ) > -1 ? task : false;
       });
     //  build tasks config GOES HERE:
+      mainTasks.build = this.props.tasks.filter(function( task ){
+        var buildTasks = [ 'compile-less', 'compile-sass', 'compile-coffee', 'browserify', 'imagemin' ];
+        return buildTasks.indexOf( task ) > -1 ? task : false;
+      });
+
 
     //  set our high-level props to hold the task data too
     this.props.mainTasks = mainTasks;

@@ -5,7 +5,8 @@ var gulp       = require('gulp'),
 
 <% if( mainTasks.def.length > -1 ) { %>
   gulp.task( 'default', [ <% mainTasks.def.forEach(function(task, i){ %>'<%- task %>'<% if( i < mainTasks.def.length-1 ){ %>, <% } }) %> ]);
-<% } %>
-<% if( mainTasks.dev.length > -1 ) { %>
+<% } if( mainTasks.dev.length > -1 ) { %>
   gulp.task( 'dev', [ <% mainTasks.dev.forEach(function(task, i){ %>'<%- task %>'<% if( i < mainTasks.dev.length-1 ){ %>, <% } }) %> ]);
+<% } if( mainTasks.build.length > -1 ) { %>
+  gulp.task( 'build', [ <% mainTasks.build.forEach(function(task, i){ %>'<%- task %>'<% if( i < mainTasks.build.length-1 ){ %>, <% } }) %> ]);
 <% } %>
